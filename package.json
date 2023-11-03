@@ -1,5 +1,5 @@
 {
-  "name": "my-project",
+  "name": "photo-gallery",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,7 +11,6 @@
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dnd": "^16.0.1",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
