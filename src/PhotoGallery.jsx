@@ -9,6 +9,9 @@ const PhotoGallery = () => {
   const [toggleIndex, setToggleIndex] = React.useState(null);
   const [fixedId, setFixedId] = React.useState(null);
 
+  /*---------------------------------------------*/
+  /*         HandleDragStart Functionality       */
+  /*---------------------------------------------*/
   const handleDragStart = (e, index) => {
     e.dataTransfer.setData("text/plain", index);
     setDraggedImage(index);
@@ -16,15 +19,20 @@ const PhotoGallery = () => {
     setToggleIndex(true);
     setFixedId(index);
   };
-
+  /*---------------------------------------------*/
+  /*         HandleDragOver Functionality        */
+  /*---------------------------------------------*/
   const handleDragOver = (e) => {
     e.preventDefault();
   };
-
+  /*---------------------------------------------*/
+  /*           HandleDrop Functionality          */
+  /*---------------------------------------------*/
   const handleDrop = (e, index) => {
     e.preventDefault();
     setToggleIndex(false);
     const newImages = [...images];
+
     if (draggedImage) {
       const droppedImage = newImages[draggedImage];
       newImages.splice(draggedImage, 1);
@@ -39,24 +47,31 @@ const PhotoGallery = () => {
     setDraggedImage(null);
   };
 
+  /*---------------------------------------------*/
+  /*           State Update Functionality        */
+  /*---------------------------------------------*/
   React.useEffect(() => {
     if (!draggedImage) {
-      setTimeout(() => {
-        setDragIndex(null);
-      }, 500);
+      console.log("draggedImage55", draggedImage);
+      if (draggedImage !== 0) {
+        setTimeout(() => {
+          setDragIndex(null);
+        }, 500);
+      }else if(draggedImage === 0){
+        setDraggedImage(null);
+      }
     } else if (draggedImage && toggleIndex) {
-      console.log(
-        "draggedImage && toggleIndex",
-        draggedImage,
-        "&&",
-        toggleIndex
-      );
       setTimeout(() => {
         setDraggedImage(null);
       }, 500);
     }
   }, [draggedImage, toggleIndex]);
 
+  console.log("toggleIndex", toggleIndex)
+
+  /*---------------------------------------------*/
+  /*             Checkbox Functionality          */
+  /*---------------------------------------------*/
   const handleCheckboxChange = (id) => {
     if (selectedImages.includes(id)) {
       setSelectedImages(selectedImages.filter((imageId) => imageId !== id));
@@ -65,6 +80,9 @@ const PhotoGallery = () => {
     }
   };
 
+  /*---------------------------------------------*/
+  /*           Image Delete Functionality        */
+  /*---------------------------------------------*/
   const handleDeleteSelected = () => {
     const newImages = images.filter(
       (image) => !selectedImages.includes(image.id)
@@ -73,6 +91,9 @@ const PhotoGallery = () => {
     setSelectedImages([]);
   };
 
+  /*---------------------------------------------*/
+  /*           Image Upload Functionality        */
+  /*---------------------------------------------*/
   const handleImageUpload = (e) => {
     const files = e.target.files;
     const newImages = [...images];
@@ -139,7 +160,11 @@ const PhotoGallery = () => {
                 className={`
               drag-and-drop-content group                
               ${index === 0 ? "feature-content" : ""}              
-              ${handleDragStart && draggedImage === index ? "drag-start" : "animation"}
+              ${
+                handleDragStart && draggedImage === index
+                  ? "drag-start"
+                  : "animation"
+              }
               ${
                 handleDragOver && draggedImage === index
                   ? "drag-over"
@@ -157,6 +182,7 @@ const PhotoGallery = () => {
               }                      
                `}
               >
+                {console.log("draggedImage", draggedImage, prevDragIndex)}
                 <input
                   type="checkbox"
                   className="checkbox-style"
@@ -167,7 +193,7 @@ const PhotoGallery = () => {
                   className="image"
                   loading="lazy"
                   src={image?.img}
-                  alt={`Image-${index}`}
+                  alt={`Image-${index + 1}`}
                 />
                 <div
                   loading="lazy"
