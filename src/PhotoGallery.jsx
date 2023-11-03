@@ -6,11 +6,15 @@ const PhotoGallery = () => {
   const [selectedImages, setSelectedImages] = React.useState([]);
   const [draggedImage, setDraggedImage] = React.useState(null);
   const [prevDragIndex, setDragIndex] = React.useState(null);
+  const [toggleIndex, setToggleIndex] = React.useState(null);
+  const [fixedId, setFixedId] = React.useState(null);
 
   const handleDragStart = (e, index) => {
     e.dataTransfer.setData("text/plain", index);
     setDraggedImage(index);
     setDragIndex(index);
+    setToggleIndex(true);
+    setFixedId(index);
   };
 
   const handleDragOver = (e) => {
@@ -19,29 +23,39 @@ const PhotoGallery = () => {
 
   const handleDrop = (e, index) => {
     e.preventDefault();
+    setToggleIndex(false);
     const newImages = [...images];
-    const droppedImage = newImages[draggedImage];
-
-    newImages.splice(draggedImage, 1);
-    newImages.splice(index, 0, droppedImage);
-    setImages(newImages);
-    setDraggedImage(null); 
+    if (draggedImage) {
+      const droppedImage = newImages[draggedImage];
+      newImages.splice(draggedImage, 1);
+      newImages.splice(index, 0, droppedImage);
+      setImages(newImages);
+    } else {
+      const droppedImage = newImages[fixedId];
+      newImages.splice(fixedId, 1);
+      newImages.splice(index, 0, droppedImage);
+      setImages(newImages);
+    }
+    setDraggedImage(null);
   };
 
-React.useEffect(()=>{
-  if(!draggedImage) {
-    setTimeout(()=>{
-      setDragIndex(null);
-      setDraggedImage(null); 
-    }, 500)
-  }
-  // else if(draggedImage){
-  //   setTimeout(()=>{
-  //     setDraggedImage(null); 
-  //   }, 500)
-  // }
-},[draggedImage])
-  
+  React.useEffect(() => {
+    if (!draggedImage) {
+      setTimeout(() => {
+        setDragIndex(null);
+      }, 500);
+    } else if (draggedImage && toggleIndex) {
+      console.log(
+        "draggedImage && toggleIndex",
+        draggedImage,
+        "&&",
+        toggleIndex
+      );
+      setTimeout(() => {
+        setDraggedImage(null);
+      }, 500);
+    }
+  }, [draggedImage, toggleIndex]);
 
   const handleCheckboxChange = (id) => {
     if (selectedImages.includes(id)) {
@@ -69,11 +83,8 @@ React.useEffect(()=>{
       const img = URL.createObjectURL(file);
       newImages.push({ id, img });
     }
-
     setImages(newImages);
   };
-
-  console.log("prevDragIndex", prevDragIndex, "draggedImage", draggedImage);
 
   return (
     <main className="container mx-auto mt-10">
@@ -124,26 +135,42 @@ React.useEffect(()=>{
                 onDragOver={(e) => handleDragOver(e, index)}
                 onDrop={(e) => handleDrop(e, index)}
                 draggable
-                loading="lazy"               
+                loading="lazy"
                 className={`
               drag-and-drop-content group                
               ${index === 0 ? "feature-content" : ""}              
               ${handleDragStart && draggedImage === index ? "drag-start" : "animation"}
-              ${handleDragOver && draggedImage === index ? "drag-over" : "animation"}
-              ${handleDrop && draggedImage === index ? "drag-drop" : "animation"}
-              ${draggedImage ? "" : !draggedImage && prevDragIndex === index ? "drag-drop" : "animation"}                      
+              ${
+                handleDragOver && draggedImage === index
+                  ? "drag-over"
+                  : "animation"
+              }
+              ${
+                handleDrop && draggedImage === index ? "drag-drop" : "animation"
+              }
+              ${
+                draggedImage
+                  ? ""
+                  : !draggedImage && prevDragIndex === index
+                  ? "drag-drop"
+                  : "animation"
+              }                      
                `}
               >
-                
                 <input
                   type="checkbox"
                   className="checkbox-style"
                   checked={selectedImages.includes(image?.id)}
                   onChange={() => handleCheckboxChange(image?.id)}
                 />
-                <img className="image" loading="lazy" src={image?.img} alt={`Image-${index}`} />
+                <img
+                  className="image"
+                  loading="lazy"
+                  src={image?.img}
+                  alt={`Image-${index}`}
+                />
                 <div
-                  loading="lazy"  
+                  loading="lazy"
                   className={`card-default-style ${
                     selectedImages.includes(image?.id) ? "card-active" : ""
                   }`}
