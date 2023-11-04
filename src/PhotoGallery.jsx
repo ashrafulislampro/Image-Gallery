@@ -52,22 +52,20 @@ const PhotoGallery = () => {
   /*---------------------------------------------*/
   React.useEffect(() => {
     if (!draggedImage) {
-      console.log("draggedImage55", draggedImage);
       if (draggedImage !== 0) {
         setTimeout(() => {
           setDragIndex(null);
         }, 500);
-      }else if(draggedImage === 0){
-        setDraggedImage(null);
       }
+      // else if(draggedImage === 0){
+      //   setDraggedImage(null);
+      // }
     } else if (draggedImage && toggleIndex) {
       setTimeout(() => {
         setDraggedImage(null);
       }, 500);
     }
   }, [draggedImage, toggleIndex]);
-
-  console.log("toggleIndex", toggleIndex)
 
   /*---------------------------------------------*/
   /*             Checkbox Functionality          */
@@ -182,7 +180,6 @@ const PhotoGallery = () => {
               }                      
                `}
               >
-                {console.log("draggedImage", draggedImage, prevDragIndex)}
                 <input
                   type="checkbox"
                   className="checkbox-style"

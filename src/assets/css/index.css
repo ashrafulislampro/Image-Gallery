@@ -1,10 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Poppins:wght@400;500;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer components {
   body {
+    @apply font-oswald;
   }
+
+  /* Header style */
   .header-content {
     @apply text-4xl lg:text-6xl font-bold text-gray-950 text-center mb-4;
   }
@@ -12,23 +17,15 @@
   .header-description {
     @apply text-lg font-normal text-gray-600 max-w-[600px] mx-auto text-center;
   }
-  .divider {
-    @apply bg-gray-300 h-[1px] w-full;
-  }
+
   .delete-btn {
     @apply text-red-500 hover:underline;
   }
-
-  .animation {
-    @apply transition-all duration-1000 ease-in-out;
+  .divider {
+    @apply bg-gray-300 h-[1px] w-full;
   }
 
-  .drag-and-drop-content {
-    @apply bg-[#f0f7f4] animation shadow-lg rounded-lg relative cursor-move;
-  }
-  .feature-content {
-    @apply col-span-1 md:col-span-2 lg:col-span-2 row-span-1 md:row-span-2 lg:row-span-2;
-  }
+  /* Photo Gallery */
   .gallery-container {
     @apply h-full lg:h-[100vh] flex items-center justify-center;
   }
@@ -40,6 +37,16 @@
   }
   .gallery-content {
     @apply grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5 px-8 py-10;
+  }
+  .animation {
+    @apply transition-all duration-1000 ease-in-out;
+  }
+
+  .drag-and-drop-content {
+    @apply bg-[#f0f7f4] animation shadow-lg rounded-lg relative cursor-move;
+  }
+  .feature-content {
+    @apply col-span-1 md:col-span-2 lg:col-span-2 row-span-1 md:row-span-2 lg:row-span-2;
   }
 
   .drag-start {
