@@ -8,7 +8,7 @@ const Footer = () => {
               Let's Work Together
             </h2>
             <a
-              href="https://github.com/HafezFaruk"
+              href="https://github.com/ashrafulislampro/"
               target="_blank"
               className="px-8 py-3 text-black font-bold text-[20px] bg-white text-center rounded-full sm:mb-[127px] mb-16 hover:bg-gray-300  transition-all duration-500 ease-in-out"
               rel="noreferrer"
@@ -82,14 +82,7 @@ const Footer = () => {
                   >
                     <li>Facebook</li>
                   </a>
-                  <a
-                    className="hover:text-green-300"
-                    target="_blank"
-                    href="https://www.instagram.com/ashrafulislam1659/"
-                    rel="noreferrer"
-                  >
-                    <li>Instagram</li>
-                  </a>
+                  
                 </ul>
               </div>
             </div>
