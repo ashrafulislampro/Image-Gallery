@@ -61,6 +61,14 @@ const Footer = () => {
                   <a
                     className="hover:text-green-300"
                     target="_blank"
+                    href="https://github.com/ashrafulislampro/"
+                    rel="noreferrer"
+                  >
+                    <li>Github</li>
+                  </a>
+                  <a
+                    className="hover:text-green-300"
+                    target="_blank"
                     href="https://www.hackerrank.com/ashrafulislama81/"
                     rel="noreferrer"
                   >
