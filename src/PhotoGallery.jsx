@@ -57,15 +57,21 @@ const PhotoGallery = () => {
           setDragIndex(null);
         }, 500);
       }
-      // else if(draggedImage === 0){
-      //   setDraggedImage(null);
-      // }
+      else{
+        if ((draggedImage || draggedImage === 0) && toggleIndex) {
+          setTimeout(() => {
+            setDraggedImage(null);
+          }, 500);
+        } 
+      }
     } else if (draggedImage && toggleIndex) {
-      setTimeout(() => {
-        setDraggedImage(null);
-      }, 500);
-    }
+        setTimeout(() => {
+          setDraggedImage(null);
+        }, 500);
+      }      
+        
   }, [draggedImage, toggleIndex]);
+
 
   /*---------------------------------------------*/
   /*             Checkbox Functionality          */
@@ -172,7 +178,7 @@ const PhotoGallery = () => {
                 handleDrop && draggedImage === index ? "drag-drop" : "animation"
               }
               ${
-                draggedImage
+                (draggedImage || draggedImage === 0)
                   ? ""
                   : !draggedImage && prevDragIndex === index
                   ? "drag-drop"
