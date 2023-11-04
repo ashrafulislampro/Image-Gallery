@@ -4,15 +4,21 @@ Successful Completion of Task: Project Executed in Accordance with Requirements,
 
 ## Usable Technologies
 
-```bash
-React.js
-Vit.js
-Tailwind CSS
-```
+<ul>
+    <li>React.js</li>
+    <li>Vit.js</li>
+    <li>Tailwind CSS</li>
+</ul>
 
 ## Installation
 
-```bash
-npm install
-npm run dev
-```
+<ul>
+    <li>npm install</li>
+    <li>npm run dev</li>
+</ul>
+
+# Live Website Link
+
+<ul>
+    <h2>dd</h2>
+</ul>
