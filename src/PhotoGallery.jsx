@@ -33,7 +33,7 @@ const PhotoGallery = () => {
     setToggleIndex(false);
     const newImages = [...images];
 
-    if (draggedImage) {
+    if ((draggedImage || draggedImage === 0)) {
       const droppedImage = newImages[draggedImage];
       newImages.splice(draggedImage, 1);
       newImages.splice(index, 0, droppedImage);
@@ -42,7 +42,8 @@ const PhotoGallery = () => {
       const droppedImage = newImages[fixedId];
       newImages.splice(fixedId, 1);
       newImages.splice(index, 0, droppedImage);
-      setImages(newImages);
+      setImages(newImages);      
+      setFixedId(null);
     }
     setDraggedImage(null);
   };
