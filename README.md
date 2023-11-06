@@ -54,3 +54,5 @@ Successful Completion of Task: Project Executed in Accordance with Requirements,
     <li>To Improve the apearance and feel uses there transition and animation.</li>
     <li>If you want to check photo gallery animation working properly or not you do drag the image and drop out of the gallery</li>
  </ul>
+
+## Also Implement Image Upload functionality
