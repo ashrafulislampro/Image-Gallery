@@ -35,6 +35,7 @@ const PhotoGallery = () => {
 
     if ((draggedImage || draggedImage === 0)) {
       const droppedImage = newImages[draggedImage];
+      console.log();
       newImages.splice(draggedImage, 1);
       newImages.splice(index, 0, droppedImage);
       setImages(newImages);
@@ -102,10 +103,9 @@ const PhotoGallery = () => {
   const handleImageUpload = (e) => {
     const files = e.target.files;
     const newImages = [...images];
-
     for (let i = 0; i < files.length; i++) {
       const file = files[i];
-      const id = (newImages.length + 1).toString(); // Generate a unique ID for the new image
+      const id = (newImages.length + 1); // Generate a unique ID for the new image
       const img = URL.createObjectURL(file);
       newImages.push({ id, img });
     }

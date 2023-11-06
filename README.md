@@ -10,6 +10,15 @@ Successful Completion of Task: Project Executed in Accordance with Requirements,
     <li>Tailwind CSS</li>
 </ul>
 
+## Features
+
+<ul>
+    <li>User can select and delete multiple images</li>
+    <li>User can reordered the image</li>
+    <li>User can drag and drop the image</li>
+    <li>User can upload images in the photo gallery</li>
+</ul>
+
 ## Installation
 
 <ul>
