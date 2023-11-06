@@ -145,9 +145,10 @@ const PhotoGallery = () => {
               )}
             </div>
             <div>
+              {selectedImages.length > 0 ? 
               <button className="delete-btn" onClick={handleDeleteSelected}>
                 Delete Files
-              </button>
+              </button> : null}
             </div>
           </div>
 

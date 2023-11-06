@@ -10,16 +10,6 @@ Successful Completion of Task: Project Executed in Accordance with Requirements,
     <li>Tailwind CSS</li>
 </ul>
 
-## Features
-
-<ul>
-<li>If you want to check photo gallery animation working properly or not you do drag the image and drop out of the gallery</li>
-    <li>User can select and delete multiple images</li>
-    <li>User can reordered the image</li>
-    <li>User can drag and drop the image</li>
-    <li>User can upload images in the photo gallery</li>
-</ul>
-
 ## Installation
 
 <ul>
@@ -27,8 +17,40 @@ Successful Completion of Task: Project Executed in Accordance with Requirements,
     <li>npm run dev</li>
 </ul>
 
-# Live Website Link
+## Live Link
 
 <ul>
     <h2>https://photo-gallery-ollyo.netlify.app/</h2>
 </ul>
+
+## Features
+
+### Gallery Layout
+
+ <ul>
+  <li>Implement a grid layout in the image gallery.</li>
+  <li>The gallery display images with one feature image larger than the others.</li>
+ </ul>
+
+### Sorting
+
+ <ul>
+    <li>Drag-and-drop feature allow users to rearrange the order of images in the gallery.</li>
+    <li>Images can be placed in the order that user want.</li>
+    <li>Custom drag-and-drop Create without any library.</li> 
+ </ul>
+
+### Deleting
+
+ <ul>
+    <li>Allow users to select multiple images and delete them.</li>
+    <li>For Clarity, selected photos are indicated graphically.</li>
+ </ul>
+
+### User Experience
+
+ <ul>
+    <li>The user experience offered by the website is responsive and seamless.</li>
+    <li>To Improve the apearance and feel uses there transition and animation.</li>
+    <li>If you want to check photo gallery animation working properly or not you do drag the image and drop out of the gallery</li>
+ </ul>
