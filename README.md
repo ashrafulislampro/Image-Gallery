@@ -13,6 +13,7 @@ Successful Completion of Task: Project Executed in Accordance with Requirements,
 ## Features
 
 <ul>
+<li>If you want to check photo gallery animation working properly or not you do drag the image and drop out of the gallery</li>
     <li>User can select and delete multiple images</li>
     <li>User can reordered the image</li>
     <li>User can drag and drop the image</li>
